@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: jev-trade-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: frankfurt
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: MODEL
+        value: jev
+      - key: JEV_PROVIDER
+        value: gateway
+      - key: DRY_RUN
+        value: "true"
+      - key: HL_TESTNET
+        value: "true"
+      - key: HL_COINS
+        value: BTC,ETH,SOL
+      - key: TICK_MS
+        value: "3000"
+      - key: AI_GATEWAY_API_KEY
+        sync: false
